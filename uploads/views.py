@@ -3,7 +3,7 @@ from .forms import MultipleFileUploadForm
 from .models import Archivo
 
 def subir_archivos(request):
-    if request.method == "POST":
+    if request.FILES.getlist('field_name'):
         form = MultipleFileUploadForm(request.POST, request.FILES)
         if form.is_valid():
             archivos = form.cleaned_data["archivos"]
