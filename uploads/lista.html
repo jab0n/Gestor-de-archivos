@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Archivos subidos</title>
+</head>
+<body>
+    <h1>Archivos subidos</h1>
+    <ul>
+        {% for archivo in archivos %}
+            <li>
+                <a href="{{ archivo.archivo.url }}" target="_blank">{{ archivo.archivo.name }}</a>
+            </li>
+        {% empty %}
+            <li>No hay archivos cargados.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'subir_archivos' %}">Subir más archivos</a>
+</body>
+</html>
